@@ -5,6 +5,13 @@
   --color-accent-blue: hsl(248, 32%, 49%);
   --color-accent-dark-blue: hsl(249, 10%, 26%);
   --color-accent-grayish-blue: hsl(246, 25%, 77%);
+  --header-size: 1.7rem;
+  --description-size: 1rem;
+}
+@media (min-width: 60em) {
+  :root {
+    --header-size: 2.5rem;
+  }
 }
 
 /*
@@ -73,15 +80,29 @@ body {
   height: 100vh;
   font-family: "Poppins", sans-serif;
   color: white;
+  min-width: 23.4375em;
   background-color: var(--color-primary-red);
   background-image: url(../../images/bg-intro-mobile.png);
+  place-content: center;
 }
 
 .intro_card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin: 0 1.5rem;
+  max-width: 23.4375em;
   gap: 3rem;
+}
+@media (min-width: 60em) {
+  .intro_card {
+    flex-direction: row;
+    max-width: 62.5em;
+    margin: 0 5.625rem;
+  }
+  .intro_card > * {
+    flex: 1;
+  }
 }
 
 .card_header_container {
@@ -91,16 +112,29 @@ body {
   flex-direction: column;
   gap: 1.5rem;
 }
+@media (min-width: 60em) {
+  .card_header_container {
+    margin: 0;
+    justify-content: center;
+    text-align: left;
+  }
+}
 
 .card_header {
-  font-size: 1.7rem;
-  margin: 0 2rem;
+  font-size: var(--header-size);
+  margin: 0 auto;
+  max-width: 16ch;
   font-weight: 800;
   line-height: 1.2;
 }
+@media (min-width: 60em) {
+  .card_header {
+    margin: 0;
+  }
+}
 
 .card_description {
-  font-size: 1rem;
+  font-size: var(--description-size);
   font-weight: 400;
 }
 
@@ -121,26 +155,59 @@ body {
 
 .form {
   background: white;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 0.5rem;
+}
+.form .input_container {
+  margin-top: 1rem;
+  position: relative;
+}
+.form .input_container.error input {
+  border: 3px solid var(--color-primary-red);
+  background-image: url(../../images/icon-error.svg);
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+}
+.form .input_container.error input::-moz-placeholder {
+  color: transparent;
+}
+.form .input_container.error input::placeholder {
+  color: transparent;
+}
+.form .input_container.error span {
+  visibility: visible;
 }
 .form input {
   width: 100%;
   padding: 1rem;
+  position: relative;
   border: 1px solid var(--color-accent-grayish-blue);
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
+}
+.form .error_message {
+  color: red;
+  text-align: end;
+  display: block;
+  font-size: 0.7rem;
+  margin: 0.5rem 0;
+  visibility: hidden;
 }
 .form .submit_button {
+  cursor: pointer;
   background: var(--color-primary-green);
   color: white;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+.form .submit_button:hover {
+  filter: brightness(110%);
 }
 .form .terms_and_services_text {
   color: var(--color-accent-grayish-blue);
   text-align: center;
   font-size: 0.7rem;
+  margin-top: 1rem;
 }
 .form a {
   text-decoration: none;
