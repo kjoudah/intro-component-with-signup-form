@@ -23,15 +23,18 @@ let errorStates = {
         }
     },
     email: function (element) {
+        let emailRegex = new RegExp(
+            /^[A-Za-z0-9_!#$%&'*+/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/
+        );
         if (element.value.length === 0) {
+            element.nextElementSibling.innerHTML = "Email must not be empty";
             element.parentElement.classList.add("error");
-            element.nextElementSibling.innerHtml = "Email must not be empty";
-        } else if (!element.checkValidity()) {
+        } else if (!emailRegex.test(element.value)) {
             email.parentElement.classList.add("error");
             element.nextElementSibling.innerHTML =
                 "Looks like this is not an email";
         } else {
-            console.log("valid");
+            element.nextElementSibling.innerHTML = "Email must not be empty";
             element.parentElement.classList.remove("error");
         }
     },

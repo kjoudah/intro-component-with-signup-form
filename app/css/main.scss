@@ -20,10 +20,10 @@ body {
     flex-direction: column;
     justify-content: center;
     margin: 0 1.5rem;
-    max-width: 23.4375em;
+    max-width: 28em;
     gap: 3rem;
 
-    @media (min-width: 60em) {
+    @media (min-width: 64em) {
         flex-direction: row;
         max-width: 62.5em;
         margin: 0 5.625rem;
@@ -41,7 +41,7 @@ body {
     flex-direction: column;
     gap: 1.5rem;
 
-    @media (min-width: 60em) {
+    @media (min-width: 64em) {
         margin: 0;
         justify-content: center;
         text-align: left;
@@ -55,7 +55,7 @@ body {
     font-weight: 800;
     line-height: 1.2;
 
-    @media (min-width: 60em) {
+    @media (min-width: 64em) {
         margin: 0;
     }
 }
@@ -83,6 +83,7 @@ body {
 .form {
     background: white;
     padding: 2rem;
+    max-width: 40rem;
     border-radius: 0.5rem;
 
     .input_container {
@@ -126,6 +127,13 @@ body {
 
     .submit_button {
         cursor: pointer;
+        width: 100%;
+        padding: 1rem;
+        position: relative;
+        border: 1px solid var(--color-accent-grayish-blue);
+        border-radius: 0.5rem;
+        outline: transparent;
+        border-radius: 0.5;
         background: var(--color-primary-green);
         color: white;
         text-align: center;
